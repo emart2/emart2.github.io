@@ -1,4 +1,4 @@
-var BASE_URL = "https://plant-hub-api.herokuapp.com";
+var BASE_URL = "https://electronics-mart-api.herokuapp.com";
 var Product_id = localStorage.getItem("p_id");
 var product;
 console.log(Product_id);
@@ -7,6 +7,7 @@ function load_Product() {
   var url = BASE_URL + "/view_by_product_id?product_id=" + Product_id;
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
+      console.log(this.responseText);
       var json = JSON.parse(this.responseText);
       product = json.Product;
       console.log(product);
