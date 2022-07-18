@@ -25,7 +25,7 @@ function load_Product() {
       Swal.fire({
         icon: "warning",
         title: "Oops...",
-        text: "Oops, There's no Plant with that Category...",
+        text: "Oops, There's no Product with that Category...",
       });
     }
   };
