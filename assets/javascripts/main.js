@@ -51,28 +51,30 @@ page_size = 9;
 function next() {
   document.getElementById("content").scrollIntoView();
   page_number += 1;
-  if ((page_number * page_size) % 45 == 0 && page_number * page_size != 0 && isHome == true) {
+  if (
+    (page_number * page_size) % 45 == 0 &&
+    page_number * page_size != 0 &&
+    isHome == true
+  ) {
     view_homeproducts(parseInt(page_number / 5));
-  }
-  
-  else if (isHome == true) {
+  } else if (isHome == true) {
     home_pagination();
-  } 
-  else {
+  } else {
     pagination();
   }
 }
 function prev() {
   document.getElementById("content").scrollIntoView();
   page_number -= 1;
-  if (((page_number+1) * page_size) % 45 == 0 && page_number * page_size != 0 && isHome == true) {
+  if (
+    ((page_number + 1) * page_size) % 45 == 0 &&
+    page_number * page_size != 0 &&
+    isHome == true
+  ) {
     view_homeproducts(parseInt(page_number / 5));
-  }
-  
-  else if (isHome == true) {
+  } else if (isHome == true) {
     home_pagination();
-  } 
-  else {
+  } else {
     pagination();
   }
 }
@@ -122,10 +124,10 @@ function pagination() {
   }
 }
 function home_pagination() {
-  var temp_page_number = page_number%5;
+  var temp_page_number = page_number % 5;
   selected_products = products.slice(
-    parseInt((temp_page_number * page_size)),
-    parseInt((temp_page_number * page_size + page_size))
+    parseInt(temp_page_number * page_size),
+    parseInt(temp_page_number * page_size + page_size)
   );
   if (page_number == 0) {
     document.getElementById("prev").style.backgroundColor = "transparent";
@@ -187,7 +189,7 @@ function view_products() {
   };
   var data = JSON.stringify(category);
   var http = new XMLHttpRequest();
-  var url = BASE_URL+"/view_by_categories";
+  var url = BASE_URL + "/view_by_categories";
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
       var json = JSON.parse(this.responseText);
@@ -215,16 +217,12 @@ function view_homeproducts(set_of_45_products) {
   var skip = set_of_45_products * 45;
   var limit = 45;
   var http = new XMLHttpRequest();
-  var url =
-    BASE_URL+"/view_45_products?skip=" +
-    skip +
-    "&limit=" +
-    limit;
+  var url = BASE_URL + "/view_45_products?skip=" + skip + "&limit=" + limit;
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
       var json = JSON.parse(this.responseText);
       products = json.Products;
-      products=products.sort((a,b)=>0.5-Math.random());
+      products = products.sort((a, b) => 0.5 - Math.random());
       total_products = json.Total_products;
       home_pagination();
       pagination_s();
@@ -252,9 +250,7 @@ function switch_categories(category) {
   document.getElementById("content").scrollIntoView();
   page_number = 0;
   var http = new XMLHttpRequest();
-  var url =
-    BASE_URL+"/view_by_category?category=" +
-    category;
+  var url = BASE_URL + "/view_by_category?category=" + category;
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
       var json = JSON.parse(this.responseText);
@@ -284,8 +280,7 @@ function view_by_name() {
   };
   var data = JSON.stringify(category);
   var http = new XMLHttpRequest();
-  var url =
-    BASE_URL+"/view_by_name_categories";
+  var url = BASE_URL + "/view_by_name_categories";
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
       var json = JSON.parse(this.responseText);
@@ -358,7 +353,7 @@ function my_fav() {
     });
   } else {
     var http = new XMLHttpRequest();
-    var url = BASE_URL+"/view_by_interest";
+    var url = BASE_URL + "/view_by_interest";
     http.onreadystatechange = function () {
       if (http.readyState == 4 && http.status == 200) {
         var json = JSON.parse(this.responseText);
@@ -389,7 +384,7 @@ function send_news() {
         email: email,
       };
       var data = JSON.stringify(obj);
-      var url = BASE_URL+"/news_letter";
+      var url = BASE_URL + "/news_letter";
       http.onreadystatechange = function () {
         if (http.readyState == 4 && http.status == 200) {
           var json = JSON.parse(this.responseText);
@@ -441,9 +436,7 @@ function get_by_rating(rating) {
   };
   var data = JSON.stringify(category);
   var http = new XMLHttpRequest();
-  var url =
-    BASE_URL+"/view_by_categories?rating=" +
-    rating;
+  var url = BASE_URL + "/view_by_categories?rating=" + rating;
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
       var json = JSON.parse(this.responseText);
@@ -471,11 +464,7 @@ function get_by_price(gt, lt) {
   };
   var data = JSON.stringify(category);
   var http = new XMLHttpRequest();
-  var url =
-    BASE_URL+"/view_by_price_categories?gt=" +
-    gt +
-    "&lt=" +
-    lt;
+  var url = BASE_URL + "/view_by_price_categories?gt=" + gt + "&lt=" + lt;
   http.onreadystatechange = function () {
     if (http.readyState == 4 && http.status == 200) {
       var json = JSON.parse(this.responseText);
