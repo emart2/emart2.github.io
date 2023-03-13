@@ -1,6 +1,6 @@
 function view_my_cart(){
     var http = new XMLHttpRequest();
-    var url = "https://electronics-mart-api.herokuapp.com/viewmycart";
+    var url = "https://electronics-mart-api.onrender.com/viewmycart";
     http.onreadystatechange = function() {
         if(http.readyState == 4 && http.status == 200) {
             var json = JSON.parse(this.responseText);

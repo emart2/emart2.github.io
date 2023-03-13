@@ -1,4 +1,4 @@
-var BASE_URL = "https://electronics-mart-api.herokuapp.com";
+var BASE_URL = "https://electronics-mart-api.onrender.com";
 var Product_id = localStorage.getItem("p_id");
 var product;
 console.log(Product_id);

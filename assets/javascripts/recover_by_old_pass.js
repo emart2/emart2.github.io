@@ -11,7 +11,7 @@ function set_new_pass() {
             "new_pass":document.querySelector("#pwd").value
         };
         var data = JSON.stringify(details);
-        var url = "https://electronics-mart-api.herokuapp.com/acc_recover_old_pass";
+        var url = "https://electronics-mart-api.onrender.com/acc_recover_old_pass";
         http.onreadystatechange = function() {
             if(http.readyState == 4 && http.status == 200) {
                 var json = JSON.parse(this.responseText);

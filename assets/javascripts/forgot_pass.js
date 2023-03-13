@@ -8,7 +8,7 @@ function recover_by_email() {
 		"email" : document.querySelector("#email").value
 	};
 	var data = JSON.stringify(details);
-	var url = "https://electronics-mart-api.herokuapp.com/forgot_pass";
+	var url = "https://electronics-mart-api.onrender.com/forgot_pass";
 	http.onreadystatechange = function() {
 		if(http.readyState == 4 && http.status == 200) {
 			var json = JSON.parse(this.responseText);

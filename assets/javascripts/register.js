@@ -13,7 +13,7 @@ function register_part_1(){
 				email : email
 			}
 			var data = JSON.stringify(doc);
-			var url = "https://electronics-mart-api.herokuapp.com/check_email";
+			var url = "https://electronics-mart-api.onrender.com/check_email";
 			http.onreadystatechange = function() {
 				if(http.readyState == 4 && http.status == 200) {
 					if(http.status==200){
@@ -116,7 +116,7 @@ function register_part_2(){
 		localStorage.removeItem("pass");
 		var http = new XMLHttpRequest();
 		var data = JSON.stringify(user);
-		var url = "https://electronics-mart-api.herokuapp.com/register";
+		var url = "https://electronics-mart-api.onrender.com/register";
 		http.onreadystatechange = function() {
 			if(http.readyState == 4 && http.status == 200) {
 				var json = JSON.parse(this.responseText);

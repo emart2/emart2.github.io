@@ -12,7 +12,7 @@ function login() {
 					"pwd" : pwd
 				};
 				var data = JSON.stringify(details);
-				var url = "https://electronics-mart-api.herokuapp.com/login";
+				var url = "https://electronics-mart-api.onrender.com/login";
 				http.onreadystatechange = function() {
 					if(http.readyState == 4 && http.status == 200) {
 						var json = JSON.parse(this.responseText);

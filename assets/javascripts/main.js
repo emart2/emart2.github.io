@@ -1,7 +1,7 @@
 var isNewArrival;
 var total_products;
 var isHome;
-var BASE_URL = "https://electronics-mart-api.herokuapp.com";
+var BASE_URL = "https://electronics-mart-api.onrender.com";
 function start() {
   n = localStorage.getItem("name");
   if (n != null) {
